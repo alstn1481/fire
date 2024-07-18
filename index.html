@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE</title>
+    <style>
+        #fire {
+            background: black; max-width: 1300px; margin:auto;
+            text-align: center;  position: relative;
+            margin-top:50px; overflow: hidden; padding-bottom:50px;
+        }
+        #fire form {
+            text-align: center;
+        }
+        #fire form button {
+            font-size: 2rem; width:100px; padding:5px; border-radius: 10px;
+            margin:10px;
+        }
+        #fire div img {
+            opacity: 0;
+        }
+
+        [alt="fire"] {
+            position: absolute; top:0; left:0; animation:up 2s 0.5s infinite both alternate; display: none;
+        }        
+
+        @keyframes up {
+            0%    {transform: scaleY(0.5) skewX(-5deg);  opacity:0; transform-origin: 0 bottom; }
+            50%    {transform: scaleY(1) skewX(5deg);   opacity:1; transform-origin: 0 bottom; }
+            100%  {transform: scaleY(1)   skewX(-5deg); opacity:1; transform-origin: 0 bottom;}
+        }
+        @keyframes show {
+            from {opacity:0; transform: scaleY(0.7);transform-origin: 0 bottom;}
+            to   {opacity:1; transform: scaleY(1);transform-origin: 0 bottom;}
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+
+            const btn = Array.from(document.getElementsByTagName('button')); // collection 방식인 getElementsByTagName를 Array 방식으로 바꾸기 위해 Array.from을 씀 
+            const text = document.querySelectorAll('[src *="png"]')
+
+            btn.forEach((i, j)=> {
+                i.addEventListener("click", ()=>{
+                    text[j].style.opacity=1;
+                });
+            });
+          
+
+        });////////////end
+    </script>
+</head>
+<body>
+    <section id="fire">  
+        <h1>fire animation</h1>
+        <form>
+            <button type="button">F</button>
+            <button type="button">I</button>
+            <button type="button">R</button>
+            <button type="button">E</button>
+        </form>
+        <div>
+            <img src="images/f.png" alt="F">
+            <img src="images/i.png" alt="I">
+            <img src="images/r.png" alt="R">
+            <img src="images/e.png" alt="E">
+        </div>
+        <img src="images/fire.png" alt="fire">
+    </section>
+</body>
+</html>
